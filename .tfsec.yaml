@@ -1,3 +1,10 @@
 ---
 exclude:
   - aws-ecr-enforce-immutable-repository 
+  - aws-ecr-repository-customer-key 
+    # NOTE: tfsec doesn't recognize the dynamic `encryption_configuration` block
+    #       in the `aws_kms_key` resource because it's provisioned in a submodule.
+    #        solution would be to set `module=true` in .tflint.hcl, but this would
+    #         required `terraform init` in the pipeline, which in turn requires 
+    #         installing terraform for the scan job. I would like to avoid this if 
+    #         possible since it will slow down the pipeline.
