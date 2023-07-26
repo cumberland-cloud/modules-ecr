@@ -1,6 +1,6 @@
 resource "aws_ecr_repository" "this" {
-    name                    = local.ecr_name
-    image_tag_mutability    = var.ecr.mutability
+    name                    = local.name
+    image_tag_mutability    = var.repository.mutability
 
     image_scanning_configuration {
         scan_on_push        = true
