@@ -10,7 +10,7 @@ locals {
                                         var.repository.kms_key_arn
                                     )
     policy                          = local.conditions.merge_policies ? (
-                                        data.aws_iam_policy_document.merged[0].json :
+                                        data.aws_iam_policy_document.merged[0].json
                                     ) : ( 
                                         data.aws_iam_policy_document.unmerged.json
                                     )
