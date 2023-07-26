@@ -1,7 +1,6 @@
 config {
   format            = "compact"
   module            = true
-  recursive         = true
 }
 
 plugin "aws" {
