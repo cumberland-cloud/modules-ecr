@@ -7,7 +7,7 @@ resource "aws_ecr_repository" "this" {
     }
 
     dynamic "encryption_configuration" {
-        for_each            = local.key_map
+        for_each            = local.encryption_configuration
 
         content {
             encryption_type = "KMS"
