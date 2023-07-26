@@ -12,6 +12,8 @@ data "aws_iam_policy_document" "merged" {
 }
 
 data "aws_iam_policy_document" "unmerged" {
+  #checkov:skip=CKV_AWS_356: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+    # `ecr:GetAuthorizationToken` targets a wildcard
   statement {
     sid                     = "EnableAuth"
     effect                  = "Allow"
@@ -38,7 +40,7 @@ data "aws_iam_policy_document" "unmerged" {
       "ecr:PutImage",
       "ecr:UploadLayerPart"
     ]
-    resources               = [ "*" ]
+    resources               = [ aws_ecr_repository.this.arn ]
 
     principals {
       type                  =  "AWS"
