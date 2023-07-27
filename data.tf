@@ -31,8 +31,10 @@ data "aws_iam_policy_document" "unmerged" {
       "ecr:BatchGetImage",
       "ecr:BatchCheckLayerAvailability",
       "ecr:CompleteLayerUpload",
-      "ecr:GetDownloadUrlForLayer",
+      "ecr:Get*",
+      "ecr:Describe*",
       "ecr:InitiateLayerUpload",
+      "ecr:List*",
       "ecr:PutImage",
       "ecr:UploadLayerPart"
     ]
