@@ -5,13 +5,13 @@ locals {
         provision_key               = var.repository.key == null
     }
     encryption_configuration        = local.conditions.provision_key ? (
-                                        module.kms[0].key.arn 
+                                        module.kms[0].key
                                     ) : (
-                                        var.repository.key.arn
+                                        var.repository.key
                                     )
-    policy                          = local.conditions.merge_policies ? (
-                                        data.aws_iam_policy_document.merged[0].json
+    policy_configuration            = local.conditions.merge_policies ? (
+                                        data.aws_iam_policy_document.merged[0]
                                     ) : ( 
-                                        data.aws_iam_policy_document.unmerged.json
+                                        data.aws_iam_policy_document.unmerged
                                     )
 }
