@@ -18,5 +18,5 @@ resource "aws_ecr_repository" "this" {
 
 resource "aws_ecr_repository_policy" "this" {
   repository                = aws_ecr_repository.this.name
-  policy                    = local.policy.json
+  policy                    = local.policy_configuration.json
 }
