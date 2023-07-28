@@ -1,5 +1,5 @@
-Welcome to cumberland-cloud/modules/cognito's documentation!
-============================================================
+Welcome to cumberland-cloud/modules/ecr's documentation!
+========================================================
 
 .. toctree::
    :maxdepth: 2
