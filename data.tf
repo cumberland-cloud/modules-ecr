@@ -5,7 +5,7 @@ data "aws_iam_policy_document" "merged" {
 
     source_policy_documents = [
         data.aws_iam_policy_document.unmerged.json,
-        var.ecr.policy
+        var.repository.policy
     ]
 }
 
