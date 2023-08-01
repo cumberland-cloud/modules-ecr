@@ -6,13 +6,9 @@ resource "aws_ecr_repository" "this" {
         scan_on_push        = true
     }
 
-    dynamic "encryption_configuration" {
-        for_each            = local.encryption_configuration
-
-        content {
-            encryption_type = "KMS"
-            kms_key         = encryption_configuration.value["arn"]
-        }
+    encryption_configuration {
+        encryption_type     = "KMS"
+        kms_key             = local.encryption_configuration.arn
     }
 }
 
