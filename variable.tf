@@ -10,7 +10,11 @@ variable "repository" {
     type                = object({
         namespace       = string
         name            = string
-        key             = optional(string, null)
+        key             = optional(object({
+            id          = string
+            arn         = string
+            alias_arn   = string
+        }), null)
         mutability      = optional(string, "MUTABLE")
         policy          = optional(string, null)
     })
