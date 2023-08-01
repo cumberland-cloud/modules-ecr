@@ -11,7 +11,7 @@ resource "aws_ecr_repository" "this" {
 
         content {
             encryption_type = "KMS"
-            kms_key         = each.value.arn
+            kms_key         = encryption_configuration.value["arn"]
         }
     }
 }
